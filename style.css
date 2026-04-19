@@ -54,11 +54,13 @@ body {
   /* background-color: var(--bg); */
   background: linear-gradient(
     125deg,
-    #0f1a1c 33%,
-    #0e181b 33% 33.5%,
-    #111f22 36% 66%,
-    #101d20 66% 66.5%,
-    var(--bg) 69%
+    var(--bg) 25%,
+    #101d20 25% 25.5%,
+    var(--bg) 28% 50%,
+    #101d20 50% 50.5%,
+    var(--bg) 53% 75%,
+    #101d20 75% 75.5%,
+    var(--bg) 78%
   );
   max-width: 65em;
   min-height: 100vh;

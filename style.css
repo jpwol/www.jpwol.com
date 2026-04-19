@@ -55,8 +55,10 @@ body {
   background: linear-gradient(
     125deg,
     #0f1a1c 33%,
-    #111f22 33% 66%,
-    var(--bg) 66%
+    #0e181b 33% 33.5%,
+    #111f22 36% 66%,
+    #101d20 66% 66.5%,
+    var(--bg) 69%
   );
   max-width: 65em;
   min-height: 100vh;

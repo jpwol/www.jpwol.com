@@ -107,7 +107,7 @@ p {
   background-size: 0% 2px;
   background-repeat: no-repeat;
   background-position: bottom left;
-  transition: background-size 0.3s ease;
+  transition: background-size 0.2s ease;
 }
 
 .inline-link:hover {
@@ -147,7 +147,7 @@ p {
   background-repeat: no-repeat;
   background-position: bottom left;
   transition:
-    background-size 0.5s ease,
+    background-size 0.3s ease,
     background-color 0.5s ease;
 
   img {

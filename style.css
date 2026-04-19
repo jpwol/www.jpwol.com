@@ -51,7 +51,13 @@ body {
 
   display: flex;
   flex-direction: column;
-  background-color: var(--bg);
+  /* background-color: var(--bg); */
+  background: linear-gradient(
+    125deg,
+    #0f1a1c 33%,
+    #111f22 33% 66%,
+    var(--bg) 66%
+  );
   max-width: 65em;
   min-height: 100vh;
   margin: 0 auto;

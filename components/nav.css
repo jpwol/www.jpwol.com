@@ -1,0 +1,48 @@
+.hero-container {
+  display: flex;
+  align-items: stretch;
+  font-size: 2rem;
+  margin: 40px 0;
+}
+
+.hero-name {
+  background-color: var(--title);
+  color: var(--bg);
+  display: inline;
+  /* margin-top: 2px; */
+  padding: 2px 0.4em 0 0.4em;
+  flex-shrink: 0;
+}
+
+.hero-tail {
+  display: block;
+  font-family: "Adwaita Mono";
+  flex: 1;
+  overflow: hidden;
+  color: var(--title);
+}
+
+.hero-nav {
+  display: flex;
+  gap: 0.5rem;
+  flex-shrink: 0;
+}
+
+.hero-nav a {
+  font-size: 1rem;
+  color: var(--title);
+  text-decoration: none;
+  background-color: var(--title); /* same box style as your name */
+  color: var(--bg); /* text color flipped to background color */
+  display: flex;
+  padding: 0 6px;
+  align-items: center;
+  margin: 0;
+
+  transition: transform 0.3s ease-in-out;
+}
+
+.hero-nav a:hover {
+  transform: translateY(10px);
+  opacity: 0.8;
+}

@@ -148,13 +148,10 @@ p {
 
   font-size: 1.2rem;
 
-  background-image: linear-gradient(var(--title), var(--title));
-  background-size: 0% 2px;
-  background-repeat: no-repeat;
-  background-position: bottom left;
   transition:
-    background-size 0.3s ease,
-    background-color 0.5s ease;
+    background-color 0.2s ease,
+    box-shadow 0.2s ease,
+    translate 0.15s ease;
 
   img {
     align-self: flex-start;
@@ -163,8 +160,9 @@ p {
 }
 
 .project:hover {
-  background-size: 100% 2px;
   background-color: var(--bg-trans);
+  translate: -10px -5px;
+  box-shadow: 10px 5px #0f1a1c;
 }
 .project-name {
   font-weight: bold;

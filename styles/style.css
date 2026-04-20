@@ -1,4 +1,5 @@
-@import "components/nav.css";
+@import "nav.css";
+@import "profile.css";
 
 :root {
   --bg: #152326;

@@ -1,0 +1,9 @@
+.profile {
+  display: flex;
+  justify-content: center;
+}
+
+.profile img {
+  border: 4px solid var(--title);
+  border-radius: 50%;
+}

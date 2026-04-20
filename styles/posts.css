@@ -13,7 +13,6 @@
 
   border-radius: 0.5em;
 
-  max-width: 18em;
   max-height: 14.5em;
   padding: 1em 1em;
 
@@ -30,8 +29,8 @@
 }
 
 .post-thumb {
-  display: block;
-  /* width: 20em; */
+  max-width: 18em;
+  max-height: 11.5em;
 }
 
 .post-date {

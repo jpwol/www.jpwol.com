@@ -1,9 +1,16 @@
 [
   {
     "name": "First Post",
-    "date": "4/20/2026",
+    "date": "2026-04-20",
     "icon": "https://cdn.simpleicons.org/pinboard/ffffff",
     "thumb": "/assets/posts/post1thumb.png",
+    "url": "/pages/posts/post1.html"
+  },
+  {
+    "name": "Second Post",
+    "date": "2026-04-20",
+    "icon": "https://cdn.simpleicons.org/pinboard/ffffff",
+    "thumb": "/assets/posts/thorn_logo.png",
     "url": "/pages/posts/post1.html"
   }
 ]

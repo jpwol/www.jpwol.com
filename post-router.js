@@ -41,3 +41,12 @@ const sortBy = (key) => {
   const sorted = [...posts].sort(sorts[key]);
   fillPosts(sorted);
 };
+
+document.querySelector(".sort-btn").addEventListener("click", (e) => {
+  e.stopPropagation();
+  document.querySelector(".sort-menu").classList.toggle("hidden");
+});
+
+document.addEventListener("click", () => {
+  document.querySelector(".sort-menu").classList.add("hidden");
+});

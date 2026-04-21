@@ -1,0 +1,28 @@
+.back-arrow {
+  display: inline-flex;
+  color: var(--title);
+  font-size: 2em;
+
+  border-radius: 0.2em;
+
+  text-decoration: none;
+
+  transition: translate 0.2s ease;
+
+  cursor: pointer;
+}
+
+.back-arrow div {
+  font-family: "Monaspace Neon";
+
+  align-self: center;
+  font-size: 1rem;
+  font-weight: bold;
+  flex: 0;
+  padding-left: 0.5rem;
+}
+
+.back-arrow:hover {
+  color: var(--divider);
+  translate: -10px 0px;
+}

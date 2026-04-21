@@ -21,9 +21,11 @@ Promise.all([
   fetch("/components/nav.html").then((res) => res.text()),
   fetch("/components/footer.html").then((res) => res.text()),
   fetch("/components/section-divider.html").then((res) => res.text()),
-]).then(([nav, footer, divider]) => {
+  fetch("/components/back_arrow.html").then((res) => res.text()),
+]).then(([nav, footer, divider, back]) => {
   injectHTML(nav, "nav-placeholder");
   injectHTML(footer, "footer-placeholder");
+  injectHTML(back, "back-placeholder");
   injectAll(divider, "divider-placeholder");
   fillTail();
 });

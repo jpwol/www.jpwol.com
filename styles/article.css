@@ -26,3 +26,109 @@
   color: var(--divider);
   translate: -10px 0px;
 }
+
+.highlight {
+  color: var(--divider);
+}
+
+.article-section {
+  margin-top: 3em;
+  padding: 0;
+}
+
+.article-section h2 {
+  color: var(--title);
+}
+
+.article-subsection {
+  margin-top: 1em;
+  padding: 0;
+}
+.article-subsection h3 {
+  color: var(--title);
+}
+
+.code-block {
+  display: flex;
+  flex-direction: column;
+  width: fit-content;
+  cursor: copy;
+
+  border-radius: 0.5em;
+  transition:
+    translate 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.code-block .title {
+  color: var(--title);
+  font-family: "Monaspace Neon";
+  font-style: italic;
+  background-color: var(--bg-trans);
+  border-radius: 0.5em 0.5em 0 0;
+  padding: 0.3em 0 0.2em 0.5em;
+}
+
+.code-block.center {
+  margin: auto;
+}
+
+.code-block pre {
+  background-color: var(--float);
+  padding: 0 3em 0 0;
+  margin: 0;
+  border-radius: 0 0 0.5em 0.5em;
+  font-size: 1.2em;
+
+  transition: background-color 0.2s ease;
+}
+
+.code-block.no-title pre {
+  border-radius: 0.5rem;
+}
+
+.code-block:hover {
+  translate: -10px -5px;
+  box-shadow: 10px 5px var(--float);
+
+  pre {
+    background-color: var(--bg-trans);
+  }
+}
+
+.code-block.copied pre {
+  background-color: #38524f;
+}
+
+.hljs {
+  background-color: transparent;
+}
+
+code {
+  background-color: var(--section);
+  color: var(--bg);
+  padding: 0.1em;
+  border-radius: 0.3em;
+  font-weight: bold;
+}
+
+pre code {
+  font-weight: normal;
+}
+
+ol {
+  color: var(--text);
+  font-size: 1.2em;
+}
+
+li {
+  color: var(--divider);
+  margin-top: 1em;
+}
+li p {
+  font-size: 1em;
+}
+li .code-block {
+  margin-bottom: 1em;
+  font-size: 0.8em;
+}

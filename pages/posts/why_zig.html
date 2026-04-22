@@ -2,17 +2,24 @@
 <head>
   <meta charset="utf-8" />
   <link rel="icon" href="/favicon.png" type="image/png" />
-  <link rel="stylesheet" href="/styles/style.css" />
   <link
     rel="stylesheet"
     href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
   />
   <link
     rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github-dark.min.css"
+    href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/styles/github-dark.css"
   />
+  <link rel="stylesheet" href="/styles/style.css" />
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/highlight.min.js"></script>
+  <script src="/scripts/zig.min.js"></script>
+  <script>
+    hljs.highlightAll();
+  </script>
+
   <title>Why I chose Zig</title>
-  <script src="/main.js" defer></script>
+  <script src="/scripts/main.js" defer></script>
 </head>
 
 <body>
@@ -23,7 +30,320 @@
     <div class="section">
       <h1 class="section-header">Why I chose Zig</h1>
       <span class="divider-placeholder"></span>
+
+      <p>
+        At the time of writing this, Zig is currently at
+        <span class="highlight">Release Version 0.16.0</span>, which changed the
+        structure of Io pretty drastically.
+      </p>
+
+      <div class="article-section">
+        <h2>Intro</h2>
+      </div>
+      <p>
+        With all of the options for modern systems languages, many people find
+        themselves wondering why they would choose Zig? It's pre-1.0 and
+        therefore unstable, and there's no promise that it will see widespread
+        adoption.
+      </p>
+      <p>
+        Languages like Rust have been around for some time now, and obviously
+        have adoption and hype going for them. C++ is a giant and will remain a
+        strong candidate for the foreseeable future. C is an obvious candidate,
+        it's been around forever and is practically the backbone of all modern
+        infrastructure. So with these established options, why choose Zig?
+      </p>
+      <div class="article-section">
+        <h2>Background</h2>
+      </div>
+      <p>
+        First, some background. I started my programming journey with C++ when I
+        was 18 years old, following online textbooks and youtube videos. I
+        learned a lot about design paradigms and idiomatic approaches during
+        this time. I used to think that C was the outdated little brother, and
+        if you're going to write C code, you might as well use the better
+        option, C++.
+      </p>
+      <p>
+        This changed when I actually dug into C. My entire worldview on
+        programming collapsed as I realized the power that came with programming
+        in a much simpler language. I fell in love with systems programming, and
+        adopted an aversion to using third-party libraries. My projects started
+        taking drastically longer as I would find the need for a dependency and
+        then write it myself instead of using someone else's. Many seasoned
+        developers would call this a waste of time, but I took it as a learning
+        opportunity. I learned new approaches and methods for doing systems work
+        including parsing, memory management (custom stack/heap allocation,
+        arenas, ect.), advanced I/O, and so much more.
+      </p>
+
+      <p>
+        During this part of my journey is when I found Zig. This was back when
+        Zig just released version <span class="highlight">0.13.0</span>. I did
+        <a
+          class="inline-link"
+          href="https://codeberg.org/ziglings/exercises/#ziglings"
+          target="_blank"
+          rel="noopener"
+          >ziglings exercises</a
+        >, read the (admittedly <span class="highlight">lacking</span>)
+        documentation, and powered my way through. At that point in my life I
+        would consider myself a pretty decent amateur developer, and Zig just
+        scratched a certain itch in my brain. I loved the
+        <span class="highlight">syntax</span>,
+        <span class="highlight">explicitness</span>, and
+        <span class="highlight">freedom</span> that came with it. Compared to
+        C++ or Rust, Zig makes sure you know exactly what you're doing, and more
+        importantly <span class="highlight">why</span>.
+      </p>
+
+      <div class="article-section">
+        <h2>Why not Rust?</h2>
+      </div>
+      <p>
+        I tried to give Rust an honest attempt. Many people who are turned off
+        of Rust are done so by "complicated" language features like the
+        <span class="highlight">borrow-checker</span>. My reasoning for not
+        being a fan is much more simple, I just didn't enjoy writing it. I felt
+        like I <span class="highlight">escaped C++</span>, and Rust was pulling
+        me right back into the same patterns. This isn't a dig at the language
+        at all, it's gotten so popular for a reason. But I believe that to work
+        well in a language, you at least have to enjoy writing it.
+      </p>
+      <p>
+        With Zig, I got the same feeling as when I compiled my first program. I
+        did little projects to learn the language better, like writing
+        <span class="highlight"><i>cat</i></span> or a
+        <span class="highlight"><i>parser</i></span> from scratch. The process
+        felt natural, I understood what I was doing at every step, and the
+        language often kept me from shooting myself in the foot.
+      </p>
+
+      <div class="article-section">
+        <h2>Language Features</h2>
+      </div>
+      <p>
+        To keep this from being a writeup on the entire language, I'll talk
+        about only what stands out to me.
+      </p>
+      <div class="article-subsection">
+        <h3>Comptime</h3>
+      </div>
+      <p>
+        <span class="highlight">Comptime</span> is probably Zig's most stand-out
+        feature. You can think of it functionally similar to
+        <span class="highlight">C++ templates</span>, in that it allows you to
+        define <i>type generic</i> constructs including structs, functions, and
+        enums, that get resolved at compile time. Let's look at two examples.
+      </p>
+      <div class="code-block" onclick="copyCode(this)">
+        <span class="title">Generic Function Example</span>
+        <pre><code class="language-zig">
+  fn multiply(comptime T: type, a: T, b: T) T {
+    return a * b;
+  }
+
+  ...
+
+  const x = multiply(f32, 3.0, 4.0);
+        </code></pre>
+      </div>
+      <p>
+        This defines a generic function. You simply specify the type you're
+        using and the argument types + return type are resolved at compile time.
+        Next, a struct:
+      </p>
+      <div class="code-block" onclick="copyCode(this)">
+        <span class="title">Generic Struct Example</span>
+        <pre><code>
+  const std = @import("std");
+  const Allocator = std.mem.Allocator;
+
+  pub fn HashTable(comptime T: type, size: u64) type {
+    return struct {
+      const Self = @This();
+
+      const Entry = struct {
+        key: []const u8,
+        value: T,
+        next: ?*Entry,
+
+        inline fn hash(key: []const u8, table_size: u64) u64 {
+          var h: u64 = 0;
+          for (key) |c| {
+            h = h * 31 + c;
+          }
+
+          return h % table_size;
+        }
+      };
+
+      buckets: []?*Entry,
+      size: u64,
+      allocator: Allocator,
+    
+      pub fn init(allocator: Allocator) !Self {
+        ...
+      }
+
+      pub fn insert(self: *Self, key: []const u8, value: T) !void {
+        ...
+      }
+
+  }
+
+  ...
+
+  const table: HashTable(f64, 128) = try .init(allocator);
+        </code></pre>
+      </div>
+      <p>
+        This defines a generic hashtable struct. The
+        <span class="highlight">type</span>, being
+        <code>HashTable(f64, 128)</code>
+        defines <code>table</code> as a struct with the inner type
+        <code>f64</code> and size <code>128</code>. So why is this better than
+        C++ templates? Well, a few reasons.
+      </p>
+      <ol>
+        <li>
+          No separate template sublanguage
+          <p>
+            C++ templates are famously known for being their own Turing-complete
+            sublanguage with completely different syntax and semantics from
+            regular C++.
+          </p>
+          <p>
+            Zig has none of that. There are no templates. You write a function
+            that takes a comptime T: type argument, and inside the function body
+            you just... write code. Branches with if, loops, function calls,
+            it's all the same as runtime code. The compiler evaluates it at
+            compile time.
+          </p>
+        </li>
+        <li>
+          Errors are comprehensible
+          <p>
+            C++ template errors are notoriously catastrophic, often being
+            hundreds of lines of nested instantiation backtraces because the
+            error is discovered deep in a template the user didn't write.
+            Because Zig uses normal code, errors point to the actual line of
+            logic that failed, with a short, clear message.
+          </p>
+        </li>
+        <li>
+          comptime reflection replaces macros and codegen
+          <p>
+            You can inspect and construct types at compile time using the
+            <code>@typeInfo</code> builtin, which returns a tagged union
+            describing a type's structure. This means you can write a generic
+            serializer, a printf, or an ORM without an external code generator
+            or macro system:
+          </p>
+
+          <div class="code-block no-title center" onclick="copyCode(this)">
+            <pre><code>
+  fn printFields(comptime T: type, val: T) void {
+    inline for (std.meta.fields(T)) |field| {
+      std.debug.print("{s} = {any}\n", .{ field.name, @field(val, field.name) });
+    }
+  }
+            </code></pre>
+          </div>
+        </li>
+        <li>
+          Comptime values are just values
+          <p>
+            A comptime variable can hold a type, a number, a struct, a slice,
+            anything. You can build up a type programmatically, as we've seen
+            with the HashTable example.
+          </p>
+        </li>
+      </ol>
+      <p>
+        There's much more to what makes <code>comptime</code> so great,
+        including the <span class="highlight">Sema</span>
+        interpreter that runs during compile-time. I highly encourage reading
+        more about it.
+      </p>
+
+      <div class="article-subsection">
+        <h3>Introspection and Reflection</h3>
+      </div>
+      <p>
+        It would be hard to talk about Introspection without Reflection and vice
+        versa when talking about Zig. If you've worked in languages like
+        <span class="highlight">C#</span>, <span class="highlight">Java</span>,
+        or <span class="highlight">Python</span>, you likely either know what
+        this is or have used it. Runtime reflection, which is what these
+        languages have, allows a program to inspect, examine, and modify its own
+        structure and behaviour during runtime. Static reflection, which is what
+        <span class="highlight">Zig</span> has, runs during compile time.
+      </p>
+      <p>
+        Introspection is the ability for a program to examine type, properties,
+        or structure of an object at runtime. This means you can pass an object
+        to a function, type independent, and the function can ask the object if
+        it has a specific properity or method. If it does, the function can then
+        access that property or call the method.
+      </p>
+      <p>
+        These features are part of a paradigm called
+        <span class="highlight">metaprogramming</span>, which is one of the most
+        interesting ways to solve a lot of problems in my opinion. An example of
+        this in Zig can be seen in my
+        <a
+          class="inline-link"
+          href="https://github.com/jpwol/zopt"
+          target="_blank"
+          rel="noopener"
+          >zopt</a
+        >
+        library, where the user defines their
+        <span class="highlight">cli arguments</span> with a struct instead of
+        strings.
+      </p>
+
+      <div class="article-section">
+        <h2>But it's Pre 1.0!</h2>
+      </div>
+      <p>
+        Zig has been progressing slowly. It's been 10 years and we just hit
+        <span class="highlight">0.16.0</span>. Personally, I think this is a
+        good thing. Andrew Kelley and his team at the Zig Foundation have been
+        making very intentional and explicit choices about the language. As
+        such, the features I talked about,
+        <span class="highlight">comptime</span>,
+        <span class="highlight">reflection</span>, as well as the
+        <span class="highlight">build system</span> are native, concretely
+        planned language features. They aren't stapled on afterthoughts, like
+        many of the same features are in C++ and Rust.
+      </p>
+      <p>
+        Zig is already seeing adoption, for example
+        <a
+          class="inline-link"
+          href="https://github.com/ghostty-org/ghostty"
+          target="_blank"
+          rel="noopener"
+          >Ghostty</a
+        >
+        and
+        <a
+          class="inline-link"
+          href="https://github.com/oven-sh/bun"
+          target="_blank"
+          rel="noopener"
+          >Bun</a
+        >.
+      </p>
+      <p>
+        If you're concerned about the language and how it's progressing, I
+        encourage you to get involved. Zig has real potential to be the best
+        systems language, and I recommend everyone to try it out for themselves.
+      </p>
     </div>
   </main>
+
   <div id="footer-placeholder"></div>
 </body>

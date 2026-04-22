@@ -12,6 +12,7 @@
   flex-direction: column;
   background-color: var(--bg-trans);
   text-decoration: none;
+  box-shadow: 10px 5px #0f1a1c;
 
   border-radius: 0.5em;
 
@@ -27,8 +28,8 @@
 }
 
 .post-listing:hover {
-  translate: -10px -5px;
-  box-shadow: 10px 5px #0f1a1c;
+  translate: 10px 5px;
+  box-shadow: none;
   background-color: #38524f;
 }
 

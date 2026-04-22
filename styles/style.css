@@ -55,7 +55,6 @@ body {
 
   display: flex;
   flex-direction: column;
-  /* background-color: var(--bg); */
   background: linear-gradient(
     125deg,
     var(--bg) 25%,
@@ -66,6 +65,7 @@ body {
     #101d20 75% 75.5%,
     var(--bg) 78%
   );
+  background-attachment: fixed;
   max-width: 65em;
   min-height: 100vh;
   margin: 0 auto;

@@ -12,7 +12,6 @@
   flex-direction: column;
   background-color: var(--bg-trans);
   text-decoration: none;
-  box-shadow: 10px 5px #0f1a1c;
 
   border-radius: 0.5em;
 
@@ -28,9 +27,14 @@
 }
 
 .post-listing:hover {
-  translate: 10px 5px;
-  box-shadow: none;
+  translate: -10px -5px;
+  box-shadow: 10px 5px #0f1a1c;
   background-color: #38524f;
+}
+
+.post-listing:active {
+  translate: 0 0;
+  box-shadow: none;
 }
 
 .post-thumb {
@@ -84,7 +88,8 @@
   cursor: pointer;
   transition:
     background-color 0.2s ease,
-    color 0.2s ease;
+    color 0.2s ease,
+    translate 0.2s ease;
 }
 
 .sort-btn:hover {
@@ -92,21 +97,49 @@
   color: var(--bg);
 }
 
+.sort-btn:active {
+  background-color: var(--section);
+  translate: 5px 0;
+}
+
 .sort-menu button {
-  background-color: var(--title);
-  color: var(--bg);
+  display: flex;
+  align-items: center;
+  background-color: var(--bg-trans);
+  color: var(--title);
   padding: 0.5em 1em;
   text-align: left;
   border: none;
-  border-radius: 0.2em;
+  /* border-radius: 0.2em; */
   cursor: pointer;
-  margin: 0.2em 0;
+  /* margin: 0.2em 0; */
 
-  transition: background-color 0.2s ease;
+  transition:
+    background-color 0.2s ease,
+    color 0.2s ease,
+    translate 0.2s ease;
+}
+
+.sort-menu button:first-child {
+  border-radius: 0.5em 0.5em 0 0;
+}
+.sort-menu button:last-child {
+  border-radius: 0 0 0.5em 0.5em;
 }
 
 .sort-menu button:hover {
   background-color: var(--divider);
+  color: var(--bg);
+  translate: -10px 0;
+}
+
+.sort-menu button span {
+  flex: 1;
+}
+
+.sort-menu button i {
+  margin-left: 1em;
+  flex: 0;
 }
 
 .hidden {

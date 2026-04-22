@@ -3,6 +3,10 @@
   <meta charset="utf-8" />
   <link rel="icon" href="/favicon.png" type="image/png" />
   <link rel="stylesheet" href="/styles/style.css" />
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+  />
   <title>Josh Wolfe - Posts</title>
   <script src="/scripts/main.js" defer></script>
   <script src="/scripts/post-router.js" defer></script>
@@ -14,10 +18,22 @@
   <div class="sort-container">
     <button class="sort-btn">Sort ▾</button>
     <div class="sort-menu hidden">
-      <button onclick="sortBy('newest')">Newest</button>
-      <button onclick="sortBy('oldest')">Oldest</button>
-      <button onclick="sortBy('nameAZ')">Name A-Z</button>
-      <button onclick="sortBy('nameZA')">Name Z-A</button>
+      <button onclick="sortBy('newest')">
+        <span>Newest</span>
+        <i class="fa-solid fa-arrow-down-short-wide"></i>
+      </button>
+      <button onclick="sortBy('oldest')">
+        <span>Oldest</span>
+        <i class="fa-solid fa-arrow-down-wide-short"></i>
+      </button>
+      <button onclick="sortBy('nameAZ')">
+        <span>Name A-Z</span>
+        <i class="fa-solid fa-arrow-down-a-z"></i>
+      </button>
+      <button onclick="sortBy('nameZA')">
+        <span>Name Z-A</span>
+        <i class="fa-solid fa-arrow-down-z-a"></i>
+      </button>
     </div>
   </div>
 

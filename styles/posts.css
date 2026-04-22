@@ -32,11 +32,6 @@
   background-color: #38524f;
 }
 
-.post-listing:active {
-  translate: 0 0;
-  box-shadow: none;
-}
-
 .post-thumb {
   display: block;
   max-height: 11.5em;

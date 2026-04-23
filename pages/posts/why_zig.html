@@ -242,6 +242,7 @@
           </p>
 
           <div class="code-block no-title center" onclick="copyCode(this)">
+            <span class="copy-msg">Copied!</span>
             <pre><code>
   fn printFields(comptime T: type, val: T) void {
     inline for (std.meta.fields(T)) |field| {

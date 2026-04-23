@@ -33,6 +33,18 @@ Promise.all([
 const copyCode = (div) => {
   const code = div.querySelector("code").innerText;
   navigator.clipboard.writeText(code).then(() => {
+    const msg = document.createElement("span");
+    msg.className = "copy-msg";
+    msg.textContent = "Copied!";
+    div.appendChild(msg);
+
+    msg.getBoundingClientRect();
+    msg.classList.add("visible");
+    setTimeout(() => {
+      msg.classList.remove("visible");
+      msg.addEventListener("transitionend", () => msg.remove());
+    }, 2000);
+
     div.classList.add("copied");
     setTimeout(() => div.classList.remove("copied"), 300);
   });

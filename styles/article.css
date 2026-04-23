@@ -48,8 +48,33 @@
   color: var(--title);
 }
 
+.copy-msg {
+  position: absolute;
+  top: 2.5em;
+  right: 0.5em;
+  color: var(--title);
+  pointer-events: none;
+
+  font-size: 0.8em;
+  font-style: italic;
+
+  opacity: 0;
+
+  transition: opacity 0.2s ease;
+}
+.code-block.no-title .copy-msg {
+  top: 0.5em;
+}
+.copy-msg.visible {
+  opacity: 1;
+}
+
+.code-block.center {
+  margin: auto;
+}
 .code-block {
   display: flex;
+  position: relative;
   flex-direction: column;
   width: fit-content;
   cursor: copy;
@@ -59,7 +84,6 @@
     translate 0.2s ease,
     box-shadow 0.2s ease;
 }
-
 .code-block .title {
   color: var(--title);
   font-family: "Monaspace Neon";
@@ -67,10 +91,6 @@
   background-color: var(--bg-trans);
   border-radius: 0.5em 0.5em 0 0;
   padding: 0.3em 0 0.2em 0.5em;
-}
-
-.code-block.center {
-  margin: auto;
 }
 
 .code-block pre {
@@ -82,11 +102,9 @@
 
   transition: background-color 0.2s ease;
 }
-
 .code-block.no-title pre {
   border-radius: 0.5rem;
 }
-
 .code-block:hover {
   translate: -10px -5px;
   box-shadow: 10px 5px var(--float);
@@ -95,7 +113,6 @@
     background-color: var(--bg-trans);
   }
 }
-
 .code-block.copied {
   translate: 0 0;
   box-shadow: none;

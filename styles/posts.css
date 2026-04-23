@@ -93,7 +93,7 @@
 }
 
 .sort-btn:active {
-  background-color: var(--section);
+  background-color: color-mix(in srgb, var(--divider) 60%, transparent);
   translate: 5px 0;
 }
 

@@ -4,6 +4,19 @@
 @import "article.css";
 @import "switch.css";
 
+:root {
+  --bg: #172526;
+  --bg-trans: #1b2c2d;
+  --title: #84baa0;
+  --section: #6fa791;
+  --text: #dbd0c6;
+  --link: #ffd7aa;
+  --divider: #f9ada0;
+  --float: #0f1a1c;
+  --shadow: #101d20;
+  --hover: #233935;
+}
+
 [data-theme="dark"] {
   --bg: #172526;
   --bg-trans: #1b2c2d;

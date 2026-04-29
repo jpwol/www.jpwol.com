@@ -28,6 +28,24 @@ Promise.all([
   injectHTML(back, "back-placeholder");
   injectAll(divider, "divider-placeholder");
   fillTail();
+
+  const toggle = document.getElementById("theme-toggle");
+  const html = document.documentElement;
+
+  const savedTheme = localStorage.getItem("theme");
+  const systemDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+  const initialTheme = savedTheme ?? (systemDark ? "dark" : "light");
+
+  html.setAttribute("data-theme", initialTheme);
+  updateToggle(initialTheme);
+
+  toggle.addEventListener("click", () => {
+    const current = html.getAttribute("data-theme");
+    const next = current == "dark" ? "light" : "dark";
+    html.setAttribute("data-theme", next);
+    localStorage.setItem("theme", next);
+    updateToggle(next);
+  });
 });
 
 const copyCode = (div) => {
@@ -49,3 +67,21 @@ const copyCode = (div) => {
     setTimeout(() => div.classList.remove("copied"), 300);
   });
 };
+
+function updateToggle(theme) {
+  const toggle = document.getElementById("theme-toggle");
+  const toggle_content = document.getElementsByClassName("slider");
+  toggle_content.textContent = theme === "dark" ? "☀️" : "🌙";
+  toggle.setAttribute(
+    "aria-label",
+    `Switch to ${theme === "dark" ? "light" : "dark"} mode`,
+  );
+  const hljs_light = document.getElementById("hljs-light");
+  if (hljs_light != null) {
+    hljs_light.disabled = theme === "dark";
+  }
+  const hljs_dark = document.getElementById("hljs-dark");
+  if (hljs_dark != null) {
+    hljs_dark.disabled = theme === "light";
+  }
+}

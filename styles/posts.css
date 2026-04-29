@@ -28,8 +28,8 @@
 
 .post-listing:hover {
   translate: -10px -5px;
-  box-shadow: 10px 5px #0f1a1c;
-  background-color: #38524f;
+  box-shadow: 10px 5px var(--shadow);
+  background-color: var(--hover);
 }
 
 .post-thumb {

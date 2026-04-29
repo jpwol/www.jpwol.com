@@ -122,7 +122,7 @@
 }
 
 .hljs {
-  background-color: transparent;
+  background-color: transparent !important;
 }
 
 code {

@@ -2,16 +2,31 @@
 @import "profile.css";
 @import "posts.css";
 @import "article.css";
+@import "switch.css";
 
-:root {
-  --bg: #152326;
-  --bg-trans: #1d3034;
-  --title: #79c2b6;
+[data-theme="dark"] {
+  --bg: #172526;
+  --bg-trans: #1b2c2d;
+  --title: #84baa0;
   --section: #6fa791;
   --text: #dbd0c6;
   --link: #ffd7aa;
   --divider: #f9ada0;
   --float: #0f1a1c;
+  --shadow: #101d20;
+  --hover: #233935;
+}
+[data-theme="light"] {
+  --bg: #f9fdce;
+  --bg-trans: #f0f5c7;
+  --title: #84baa0;
+  --section: #6fa791;
+  --text: #3d4a2b;
+  --link: #dca838;
+  --divider: #cf7859;
+  --float: #e6eabe;
+  --shadow: #ccd0a1;
+  --hover: #dce6ba;
 }
 
 @font-face {
@@ -58,17 +73,19 @@ body {
   background: linear-gradient(
     125deg,
     var(--bg) 25%,
-    #101d20 25% 25.5%,
+    var(--shadow) 25% 25.5%,
     var(--bg) 28% 50%,
-    #101d20 50% 50.5%,
+    var(--shadow) 50% 50.5%,
     var(--bg) 53% 75%,
-    #101d20 75% 75.5%,
+    var(--shadow) 75% 75.5%,
     var(--bg) 78%
   );
   background-attachment: fixed;
   max-width: 65em;
   min-height: 100vh;
   margin: 0 auto;
+
+  transition: background-image 0.2s ease;
 }
 
 main {
@@ -170,7 +187,7 @@ p {
 .project:hover {
   background-color: var(--bg-trans);
   translate: -10px -5px;
-  box-shadow: 10px 5px #0f1a1c;
+  box-shadow: 10px 5px var(--shadow);
 }
 .project-name {
   font-weight: bold;

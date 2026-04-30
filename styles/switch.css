@@ -23,8 +23,8 @@
   bottom: 0;
   background-color: var(--shadow);
   border-radius: 5px;
-  -webkit-transition: 0.4s;
-  transition: 0.4s;
+  -webkit-transition: 0.2s;
+  transition: 0.2s;
 }
 
 .slider:before {
@@ -37,16 +37,12 @@
   background-color: var(--title);
   border-radius: 5px;
 
-  -webkit-transition: 0.4s;
-  transition: 0.4s;
+  -webkit-transition: 0.2s;
+  transition: 0.2s;
 }
 
 input:checked + .slider {
   background-color: var(--hover);
-}
-
-input:focus + .slider {
-  /* box-shadow: 0 0 1px #2196f3; */
 }
 
 input:checked + .slider:before {

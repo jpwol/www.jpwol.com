@@ -127,17 +127,13 @@ footer {
   gap: 1rem;
 }
 
-.footer-icons img {
-  width: 30px;
+.footer-icons i {
   opacity: 0.5;
-  background-color: var(--float);
-  padding: 0.5em;
-  border-radius: 50px;
   transition:
-    opacity 0.3s ease,
-    transform 0.3s ease;
+    opacity 0.1s ease,
+    transform 0.1s ease;
 }
-.footer-icons img:hover {
+.footer-icons i:hover {
   opacity: 1;
   transform: scale(1.1);
 }

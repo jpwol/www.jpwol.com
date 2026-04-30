@@ -107,7 +107,7 @@
 }
 .code-block:hover {
   translate: -10px -5px;
-  box-shadow: 10px 5px var(--float);
+  box-shadow: 10px 5px var(--shadow);
 
   pre {
     background-color: var(--bg-trans);

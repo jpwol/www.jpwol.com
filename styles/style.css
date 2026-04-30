@@ -20,8 +20,8 @@
 [data-theme="dark"] {
   --bg: #172526;
   --bg-trans: #1b2c2d;
-  --title: #84baa0;
-  --section: #6fa791;
+  --title: #88b497;
+  --section: #9ebb9c;
   --text: #dbd0c6;
   --link: #ffd7aa;
   --divider: #f9ada0;
@@ -31,9 +31,9 @@
 }
 [data-theme="light"] {
   --bg: #f9fdce;
-  --bg-trans: #f0f5c7;
-  --title: #84baa0;
-  --section: #6fa791;
+  --bg-trans: #e6eabe;
+  --title: #5d922e;
+  --section: #516f21;
   --text: #3d4a2b;
   --link: #dca838;
   --divider: #cf7859;

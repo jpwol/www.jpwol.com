@@ -1,39 +1,41 @@
 <!doctype html>
-<head>
-  <meta charset="utf-8" />
-  <meta name="description" content="Posts Page" />
-  <link rel="icon" href="/favicon.png" type="image/png" />
-  <link rel="stylesheet" href="/styles/style.css" />
-  <title>Josh Wolfe - Posts</title>
-  <script src="/scripts/main.js" defer></script>
-  <script src="/scripts/post-router.js" defer></script>
-</head>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="description" content="Posts Page" />
+    <link rel="icon" href="/favicon.png" type="image/png" />
+    <link rel="stylesheet" href="/styles/style.css" />
+    <title>Josh Wolfe - Posts</title>
+    <script src="/scripts/main.js" defer></script>
+    <script src="/scripts/post-router.js" defer></script>
+  </head>
 
-<body>
-  <div id="nav-placeholder"></div>
+  <body>
+    <div id="nav-placeholder"></div>
 
-  <div class="sort-container">
-    <button class="sort-btn">Sort ▾</button>
-    <div class="sort-menu hidden">
-      <button onclick="sortBy('newest')">
-        <span>Newest</span>
-        <i class="fa-solid fa-arrow-down-short-wide"></i>
-      </button>
-      <button onclick="sortBy('oldest')">
-        <span>Oldest</span>
-        <i class="fa-solid fa-arrow-down-wide-short"></i>
-      </button>
-      <button onclick="sortBy('nameAZ')">
-        <span>Name A-Z</span>
-        <i class="fa-solid fa-arrow-down-a-z"></i>
-      </button>
-      <button onclick="sortBy('nameZA')">
-        <span>Name Z-A</span>
-        <i class="fa-solid fa-arrow-down-z-a"></i>
-      </button>
+    <div class="sort-container">
+      <button class="sort-btn">Sort ▾</button>
+      <div class="sort-menu hidden">
+        <button onclick="sortBy('newest')">
+          <span>Newest</span>
+          <i class="fa-solid fa-arrow-down-short-wide"></i>
+        </button>
+        <button onclick="sortBy('oldest')">
+          <span>Oldest</span>
+          <i class="fa-solid fa-arrow-down-wide-short"></i>
+        </button>
+        <button onclick="sortBy('nameAZ')">
+          <span>Name A-Z</span>
+          <i class="fa-solid fa-arrow-down-a-z"></i>
+        </button>
+        <button onclick="sortBy('nameZA')">
+          <span>Name Z-A</span>
+          <i class="fa-solid fa-arrow-down-z-a"></i>
+        </button>
+      </div>
     </div>
-  </div>
 
-  <main class="posts-main"></main>
-  <div id="footer-placeholder"></div>
-</body>
+    <main class="posts-main"></main>
+    <div id="footer-placeholder"></div>
+  </body>
+</html>

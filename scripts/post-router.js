@@ -18,11 +18,11 @@ const fillPosts = (data) => {
     .map(
       (post) => `
         <a class="post-listing" href="${post.url}">
-          <img class="post-thumb" src="${post.thumb}">
+          <img class="post-thumb" src="${post.thumb}" alt="" />
           <span class="post-date">${formatDate(post.date)}</span>
           <div class="post-name">
             <span>${post.name}</span>
-            <img src="${post.icon}" />
+            <img src="${post.icon}" alt="" />
           </div>
         </a>
         `,

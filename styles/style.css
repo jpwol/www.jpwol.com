@@ -28,6 +28,7 @@
   --float: #0f1a1c;
   --shadow: #101d20;
   --hover: #233935;
+  --copied: #38524f;
 }
 [data-theme="light"] {
   --bg: #f9fdce;
@@ -37,9 +38,10 @@
   --text: #3d4a2b;
   --link: #dca838;
   --divider: #cf7859;
-  --float: #e6eabe;
+  --float: #d6d9b5;
   --shadow: #ccd0a1;
   --hover: #dce6ba;
+  --copied: #f4f7d9;
 }
 
 @font-face {

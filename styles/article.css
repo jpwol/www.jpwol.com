@@ -118,7 +118,7 @@
   box-shadow: none;
 }
 .code-block.copied pre {
-  background-color: #38524f;
+  background-color: var(--copied);
 }
 
 .hljs {
